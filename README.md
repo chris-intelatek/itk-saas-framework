@@ -166,7 +166,7 @@ GitHub is a web-based Git or version control repository and Internet hosting ser
 
 <hr>
 
-<h2>SaaS Part 4: Deploy app to Heroku for Production<h2>
+<h2>SaaS Part 4: Deploy app to Heroku for Production</h2>
 
 Heroku is a cloud platform as a service supporting several programming languages that is used as a web application deployment model.
 
