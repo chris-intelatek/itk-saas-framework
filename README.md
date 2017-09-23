@@ -194,3 +194,48 @@ Go to: https://your-app-name.herokuapp.com to see your running application.
 
 <h2>SaaS Part 5: Adding SendGrid for transactional email</h2>
 
+
+1) In the terminal, enter:
+
+    $ heroku addons:create sendgrid:starter
+
+
+2) Login to heroku.com open the dashboard, click on your app and you will see that SenGrid has
+    been added.
+	
+    Click on SendGrid and you will be taken to https://app.sandgrid.com and asked to confirm your 
+    email address.  Open your email and click to confirm.
+
+
+3) In config/environment.rb at the bottom enter:
+
+    ActionMailer::Base.smtp_settings = {
+      :address => 'smtp.sendgrid.net', 
+      :port => '587', 
+      :authentication => :plain, 
+      :user_name => ENV['SENDGRID_USERNAME'], 
+      :password => ENV['SENDGRID_PASSWORD'], 
+      :domain => 'heroku.com', 
+      :enable_starttls_auto => true 
+    }
+
+Note that using the API key is the preferred method but for now we are just using the user name and password set by SendGrid.
+
+
+4) Open config/environments/development.rb
+      
+   Below the line:  config.eager_load = false  add the following two lines:
+
+    config.action_mailer.delivery_method = :test 
+    config.action_mailer.default_url_options = { :host => 'your-app-name-username.c9users.io', :protocol => 'https'}
+	(be sure to replace the c9 app-name and your c9 user name in the url)
+
+
+5) Open config/environments/production.rb
+     
+   Below the line:  config.eager_load = true  add the following two lines:
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { :host => 'your-app-name.herokuapp.com', :protocol => 'https'}
+	(be sure to replace the heroku app-name in the url)
+	
