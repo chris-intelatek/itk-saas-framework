@@ -94,23 +94,23 @@ PostgreSQL is a powerful, open source object-relational database system. It has 
 
 1) We will create a home page, home controller and route:
 
-      $ rails g controller home index 
+      $ rails g controller home index
 
-  open the routes.rb file found in the config directory and replace:
-    get 'home/index'
 
-  with:
-    root 'home#index'
+2) Open the routes.rb file found in the config directory and
+     replace: get 'home/index'  with: root 'home#index'
 
-2) To see your application running on the Cloud 9 virtual local server, 
+
+3) To see your application running on the Cloud 9 virtual local server,
 
       $ railss
-      
-   And then go to:  https://your-app-name-username.c9users.io
+
+
+4) And then go to: https://your-app-name-username.c9users.io
 
 <hr>
 
-<h3>Sidebar: The Running the application on virtual local server on Cloud 9</h3>
+<h3>Sidebar: Running the application on virtual local server on Cloud 9</h3>
 
  
 1) To startup and run the rails server in Cloud 9:
@@ -189,3 +189,8 @@ Go to: https://your-app-name.herokuapp.com to see your running application.
   For subsequent pushes to heroku enter $ git push heroku master
   And whenever you are pushing changes that include changes to the database schema, enter 
   $ heroku run rake db:migrate
+  
+<hr>
+
+<h2>SaaS Part 5: Adding SendGrid for transactional email</h2>
+
